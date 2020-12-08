@@ -35,7 +35,7 @@
 #  include <csignal>
 #endif
 #include <popt.h>
-#include "cl.hpp"
+#include "cl.h"
 #include "gpustress-core.h"
 
 #define PROGRAM_VERSION "0.0.9.4"

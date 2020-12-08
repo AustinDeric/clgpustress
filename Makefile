@@ -19,8 +19,8 @@ gpustress-cli: gpustress-cli.o gpustress-core.o clkernels.o
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -c -o $@ $<
 
-gpustress-cli.o: gpustress-cli.cpp gpustress-core.h cli.hpp
-gpustress-core.o: gpustress-core.cpp gpustress-core.h cli.hpp
+gpustress-cli.o: gpustress-cli.cpp gpustress-core.h cli.h
+gpustress-core.o: gpustress-core.cpp gpustress-core.h cli.h
 
 clean:
 	rm -f *.o gpustress-cli gpustress-gui
