@@ -30,7 +30,7 @@
 #include <random>
 #include <chrono>
 #include <atomic>
-#include <CL/cl.hpp>
+#include <CL/cl.h>
 
 #ifdef _WINDOWS
 struct SteadyClock
