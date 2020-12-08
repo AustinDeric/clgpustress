@@ -14,14 +14,13 @@ LIBS = -lm -pthread -lpopt -lOpenCL
 all: gpustress-cli
 
 gpustress-cli: gpustress-cli.o gpustress-core.o clkernels.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -I${CURDIR} -o $@ $^ $(LIBS)
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -I${CURDIR} -c -o $@ $<
 
-gpustress-cli.o: gpustress-cli.cpp gpustress-core.h
-gpustress-core.o: gpustress-core.cpp gpustress-core.h
-gpustress-gui.o: gpustress-gui.cpp gpustress-core.h icon.xpm
+gpustress-cli.o: gpustress-cli.cpp gpustress-core.h cli.hpp
+gpustress-core.o: gpustress-core.cpp gpustress-core.h cli.hpp
 
 clean:
 	rm -f *.o gpustress-cli gpustress-gui
